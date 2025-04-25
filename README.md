@@ -1,1 +1,3 @@
-# geek_for_geeks_must_do_coding_questions
+# geek_for_geeks Must Do Coding Questions
+
+#### This repo contains python codes 
