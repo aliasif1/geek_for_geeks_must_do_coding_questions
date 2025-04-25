@@ -1,6 +1,6 @@
-#### Arrays
+# Arrays
 
-# 1. Subarray with a given sum
+#### 1. Subarray with a given sum
 ```
 class Solution:
     def subarraySum(self, arr, target):
