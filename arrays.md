@@ -34,7 +34,6 @@ class Solution:
                     j+=1
                 else:
                     k-=1
-            lastValue = arr[i]
         return triplets
 ```
 
@@ -55,7 +54,7 @@ class Solution:
                     k-=1
                     while j < k and arr[j] == arr[j-1]: j+=1
                     while j < k and arr[k] == arr[k+1]: k-=1
-                elif arr[i] < arr[j] + arr[k] > 0:
+                elif arr[i] < arr[j] + arr[k]:
                     j+=1
                 else:
                     k-=1
