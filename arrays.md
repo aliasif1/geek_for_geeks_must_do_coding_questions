@@ -107,3 +107,24 @@ class Solution:
 ```
 SKIPPED: As a mathematical formula needs to be known in order to solve this optimally
 ```
+
+##### 7. Number of pairs
+```
+import bisect
+class Solution:    
+    def countPairs(self,arr,brr):
+        brr.sort()
+        freq = [0] * 5
+        for val in brr:
+            if val < 5: freq[val] +=1
+        count = 0
+        for x in arr:
+            if x == 1: continue
+            count+=(len(brr) - bisect.bisect_right(brr, x))
+            count +=freq[1]
+            if x == 2:
+                count -=(freq[3] + freq[4])
+            if x == 3:
+                count +=freq[2]
+        return count
+```
