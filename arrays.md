@@ -128,3 +128,42 @@ class Solution:
                 count +=freq[2]
         return count
 ```
+
+##### 8. Inversion of array
+```
+# 8. Inversion of Array
+class Solution:
+    def inversionCount(self, arr):
+        (sortedArr, inversions) = self.divide(arr)
+        return inversions
+    
+    def divide(self, arr):
+        n = len(arr)
+        if n == 1:
+            return (arr, 0)
+        (leftSortedArr, leftInversions) = self.divide(arr[:n//2])
+        (rightSortedArr, rightInversions) = self.divide(arr[n//2:])
+        (sortedArr, mergeInversions) =  self.merge(leftSortedArr, rightSortedArr)
+        return (sortedArr, leftInversions + rightInversions + mergeInversions)
+    
+    def merge(self, arr1, arr2):
+        n,m = len(arr1), len(arr2)
+        arr = []
+        i,j = 0, 0
+        inversions = 0
+        while i < n and j < m:
+            if arr1[i] <= arr2[j]:
+                arr.append(arr1[i])
+                i+=1
+            else:
+                inversions += (n - i)
+                arr.append(arr2[j])
+                j+=1
+        while i < n:
+            arr.append(arr1[i])
+            i+=1
+        while j < m:
+            arr.append(arr2[j])
+            j+=1
+        return (arr, inversions)
+```
