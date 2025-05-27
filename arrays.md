@@ -102,3 +102,8 @@ class Solution:
         a.sort()
         b.sort()
 ```
+
+##### 6. Rearrange arrays alternately
+```
+SKIPPED: As a mathematical formula needs to be known in order to solve this optimally
+```
