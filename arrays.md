@@ -61,3 +61,17 @@ class Solution:
                 lastValue = arr[i]
         return triplets
 ```
+
+##### 3. Kadane's Algorithm
+```
+class Solution:
+    def maxSubArraySum(self, arr):
+        n = len(arr)
+        if n == 0: return 0
+        currentsum = arr[0]
+        maxSum = arr[0]
+        for i in range(1, n):
+            currentsum = max(currentsum + arr[i], arr[i])
+            maxSum = max(maxSum, currentsum)
+        return maxSum
+```
