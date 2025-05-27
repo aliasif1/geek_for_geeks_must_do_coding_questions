@@ -88,3 +88,17 @@ class Solution:
         val+=len(arr) + 1
         return val
 ```
+
+##### 5. Merge 2 sorted arrays
+```
+class Solution:
+    def mergeArrays(self, a, b):
+        j = len(a) - 1
+        k = 0
+        while j >= 0 and k < len(b) and a[j] > b[k]:
+            a[j], b[k] = b[k], a[j]
+            j-=1
+            k+=1
+        a.sort()
+        b.sort()
+```
