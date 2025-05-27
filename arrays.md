@@ -75,3 +75,16 @@ class Solution:
             maxSum = max(maxSum, currentsum)
         return maxSum
 ```
+
+##### 4. Missing number in array
+```
+# 4. Missing number in array
+class Solution:
+    def missingNum(self, arr):
+        val = 0
+        for i in range(len(arr)):
+            val +=(i+1)
+            val -=arr[i]
+        val+=len(arr) + 1
+        return val
+```
