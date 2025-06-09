@@ -273,4 +273,23 @@ class Solution:
         return heapq.heappop(arr)
 ```
 
-
+##### 15. Trapping Rain water
+```
+class Solution:
+    def maxWater(self, arr):
+        leftMax = 0
+        rightMax = 0
+        i = 0
+        j = len(arr) - 1
+        water = 0
+        while i <= j:
+            if leftMax <= rightMax:
+                water+=max(0, leftMax - arr[i])
+                leftMax = max(leftMax, arr[i])
+                i+=1
+            else:
+                water+=max(0, rightMax - arr[j])
+                rightMax = max(rightMax, arr[j])
+                j-=1
+        return water
+```
