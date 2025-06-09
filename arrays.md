@@ -293,3 +293,21 @@ class Solution:
                 j-=1
         return water
 ```
+
+##### 16. pythagorean triplets
+```
+class Solution:
+    def pythagoreanTriplet(self, arr):
+        n = len(arr)
+        if n < 3: return True
+        arr = [x ** 2 for x in arr]
+        arr.sort(reverse=True)
+        for i in range(n - 2):
+            j = i+1
+            k = n-1
+            while j < k:
+                if arr[i] == arr[j] + arr[k]: return True
+                elif arr[i] < arr[j] + arr[k]: j+=1
+                else: k-=1
+        return False
+```
