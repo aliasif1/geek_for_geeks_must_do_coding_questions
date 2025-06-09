@@ -241,3 +241,23 @@ class Solution:
                 j+=1
         return minPlatforms
 ```
+
+##### 13. Reverse array in group
+```
+class Solution:
+    def reverseInGroups(self, arr, k):
+        def reverse(arr,start,end):
+            i = start
+            j = end
+            while i < j:
+                arr[i], arr[j] = arr[j], arr[i]
+                i+=1
+                j-=1
+        i = 0
+        while i <= len(arr)-1:
+            start = i
+            end = min((start + k - 1), (len(arr) - 1))
+            reverse(arr, start, end)
+            i = end + 1
+        return arr
+```
