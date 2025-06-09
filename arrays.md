@@ -202,3 +202,42 @@ class Solution:
             s_before +=arr[i]
         return -1
 ```
+
+##### 11. Leaders in an array
+```
+class Solution:
+    def leaders(self, arr):
+        n = len(arr)
+        if n == 0: return 0
+        res = []
+        maxRight = float('-inf')
+        for i in range(n-1 , -1, -1):
+            if arr[i] >= maxRight: res.append(arr[i])
+            maxRight = max(maxRight, arr[i])
+        res.reverse()
+        return res
+```
+
+##### 12. Minimum platforms 
+
+```
+class Solution:    
+    def minimumPlatform(self,arr,dep):
+        n = len(arr)
+        if n == 0: return 0
+        arr.sort()
+        dep.sort()
+        minPlatforms = 0
+        currentPlatforms = 0
+        i = 0
+        j = 0
+        while i < n:
+            if arr[i] <= dep[j]:
+                currentPlatforms +=1
+                minPlatforms = max(minPlatforms, currentPlatforms)
+                i+=1
+            else:
+                currentPlatforms -=1
+                j+=1
+        return minPlatforms
+```
