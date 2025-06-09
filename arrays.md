@@ -167,3 +167,38 @@ class Solution:
             j+=1
         return (arr, inversions)
 ```
+
+##### 9. Sort an array of 0s, 1s and 2s
+```
+class Solution:
+    def sort012(self, arr):
+        n = len(arr)
+        left = 0
+        right = n-1
+        i = 0
+        while i <= right:
+            if arr[i] == 1:
+                i+=1
+                continue
+            if arr[i] == 0:
+                arr[i], arr[left] = arr[left], arr[i]
+                left+=1
+                i+=1
+                continue
+            if arr[i] == 2:
+                arr[i], arr[right] = arr[right], arr[i]
+                right -=1
+```
+
+##### 10. Equilibrium point
+```
+class Solution:
+    def findEquilibrium(self, arr):
+        s = sum(arr)
+        s_before = 0
+        for i in range(len(arr)):
+            s -=arr[i]
+            if s == s_before: return i
+            s_before +=arr[i]
+        return -1
+```
