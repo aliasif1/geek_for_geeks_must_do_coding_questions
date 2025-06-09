@@ -311,3 +311,16 @@ class Solution:
                 else: k-=1
         return False
 ```
+
+###### 17. Chocolate distributin problem
+```
+class Solution:
+    def findMinDiff(self, arr, M):
+        n = len(arr)
+        arr.sort()
+        minDiff = float('inf')
+        for i in range(n - M + 1):
+            diff = arr[i + M - 1] - arr[i]
+            minDiff = min(minDiff, diff)
+        return minDiff
+```
