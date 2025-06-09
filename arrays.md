@@ -261,3 +261,16 @@ class Solution:
             i = end + 1
         return arr
 ```
+
+##### 14. Kth smallest element
+```
+import heapq
+class Solution:
+    def kthSmallest(self, arr, k):
+        heapq.heapify(arr)
+        for i in range(k - 1):
+            heapq.heappop(arr)
+        return heapq.heappop(arr)
+```
+
+
