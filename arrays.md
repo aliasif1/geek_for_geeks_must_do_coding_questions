@@ -376,3 +376,13 @@ class Solution:
                 if arr[i+1] > arr[i]: arr[i], arr[i+1] = arr[i+1], arr[i]
         return arr
 ```
+
+##### 21. Last index of one
+```
+class Solution:
+    def lastIndex(self, s: str) -> int:
+        index = -1
+        for i in range(len(s)):
+            if s[i] == '1': index = i
+        return index
+```
