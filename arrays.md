@@ -344,3 +344,22 @@ class Solution:
             buyDate = sellDate + 1
             if buyDate >= n-1: return profit
 ```
+
+##### 19. Element with left side smaller or equal and right side greater or equal
+```
+class Solution:
+    def findElement(self, arr):
+        n = len(arr)
+        leftMaxArr = [0] * n
+        rightMinArr = [0] * n
+        leftMaxArr[0] = float("-inf")
+        rightMinArr[-1] = float("inf")
+        for i in range(1, n):
+            leftMaxArr[i] = max(leftMaxArr[i-1], arr[i-1])
+        for i in range(n-2, -1, -1):
+            rightMinArr[i] = min(rightMinArr[i+1], arr[i+1])
+        for i in range(1,n-1):
+            if leftMaxArr[i] <= arr[i] <= rightMinArr[i]: return arr[i]
+        return -1
+            
+```
