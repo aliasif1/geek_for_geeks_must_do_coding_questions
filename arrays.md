@@ -324,3 +324,23 @@ class Solution:
             minDiff = min(minDiff, diff)
         return minDiff
 ```
+
+##### 18. Stock buy and sell
+```
+class Solution:
+    def stockBuySell(self, arr):
+        n = len(arr)
+        if n <= 1: return 0
+        profit = 0
+        buyDate = 0
+        while True:
+            while buyDate <= n-2 and arr[buyDate+1] <= arr[buyDate]:
+                buyDate+=1
+            sellDate = buyDate + 1
+            if sellDate == n : return profit
+            while sellDate <= n-2 and arr[sellDate + 1] >= arr[sellDate]:
+                sellDate+=1
+            profit+=(arr[sellDate] - arr[buyDate])
+            buyDate = sellDate + 1
+            if buyDate >= n-1: return profit
+```
