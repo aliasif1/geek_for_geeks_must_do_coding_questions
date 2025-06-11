@@ -363,3 +363,16 @@ class Solution:
         return -1
             
 ```
+
+##### 20. Convert array to zig zag fashion
+```
+from typing import List
+class Solution:
+    def zigZag(self,arr : List[int]) -> None:
+        for i in range(len(arr) - 1):
+            if i % 2 == 0:
+                if arr[i+1] < arr[i]: arr[i], arr[i+1] = arr[i+1], arr[i]
+            else:
+                if arr[i+1] > arr[i]: arr[i], arr[i+1] = arr[i+1], arr[i]
+        return arr
+```
