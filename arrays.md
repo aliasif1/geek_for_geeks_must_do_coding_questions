@@ -421,3 +421,17 @@ class Solution:
             left+=1
             if left > right: return arr
 ```
+
+##### 23. Largest number formed from an array
+```
+class Solution:
+    def findLargest(self,arr):
+        if sum(arr) == 0: return 0
+        n = len(arr)
+        arr = [str(x) for x in arr]
+        for i in range(n-1):
+            for j in range(n-1-i):
+                if int( (arr[j+1]) + (arr[j]) ) > int( (arr[j]) + (arr[j+1]) ): arr[j], arr[j+1] = arr[j+1], arr[j]
+        s = ''.join(arr)
+        return s
+```
