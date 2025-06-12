@@ -386,3 +386,38 @@ class Solution:
             if s[i] == '1': index = i
         return index
 ```
+
+##### 22. spirally traversing a matrix
+```
+class Solution:
+    def spirallyTraverse(self, mat):
+        left = 0
+        right = len(mat[0]) - 1
+        top = 0
+        bottom = len(mat) - 1
+        arr = []
+        while True:
+            # left -> right
+            for i in range(left, right + 1):
+                arr.append(mat[top][i])
+            top+=1
+            if top > bottom: return arr
+            
+            # top -> bottom
+            for i in range(top, bottom + 1):
+                arr.append(mat[i][right])
+            right-=1
+            if right < left: return arr
+            
+            # right -> left
+            for i in range(right, left - 1, -1):
+                arr.append(mat[bottom][i])
+            bottom-=1
+            if bottom < top: return arr
+            
+            # bottom -> top
+            for i in range(bottom, top - 1, -1):
+                arr.append(mat[i][left])
+            left+=1
+            if left > right: return arr
+```
